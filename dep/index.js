@@ -10,7 +10,7 @@ var base64Img = require('base64-img');
 
 module.exports = app => {
 
-  app.log('Yay, the app was loaded!')
+  app.log('ThorQRBot is Running!')
 
   app.on('pull_request.opened', async context => {
     const branch = context.payload.pull_request.head.ref
@@ -21,9 +21,10 @@ module.exports = app => {
     const imgurLink = await uploadToImgur(imgpath);
 
     const message = 'Here is your QR Code for: <br>' + thorLink.toLowerCase() + '<br><img src="' + imgurLink + '"/>'
-    app.log("MESSAGE: " + message)
 
     const issueComment = context.issue({ body: message })
+
+    app.log("QR CODE POSTED!");
 
     return context.github.issues.createComment(issueComment)
   })
