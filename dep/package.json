@@ -1,7 +1,7 @@
 {
-  "name": "thorqrbot",
+  "name": "thorqr-1.0",
   "version": "1.0.0",
-  "description": "Thor QR code comment bot",
+  "description": "Thor QR Codes",
   "author": "Josh Berg <joshberg@iastate.edu>",
   "license": "ISC",
   "repository": "https://github.com//dep.git",
@@ -20,7 +20,11 @@
     "test:watch": "jest --watch --notify --notifyMode=change --coverage"
   },
   "dependencies": {
-    "probot": "^7.2.0"
+    "base64-img": "^1.0.4",
+    "imgur-uploader": "^4.2.1",
+    "probot": "^7.2.0",
+    "qrcode": "^1.4.0",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "jest": "^24.0.0",

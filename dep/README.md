@@ -1,6 +1,6 @@
-# thorqrbot
+# thorqr-1.0
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that Thor QR code comment bot
+> A GitHub App built with [Probot](https://github.com/probot/probot) that Thor QR Codes
 
 ## Setup
 
@@ -14,7 +14,7 @@ npm start
 
 ## Contributing
 
-If you have suggestions for how thorqrbot could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
+If you have suggestions for how thorqr-1.0 could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
 
 For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
