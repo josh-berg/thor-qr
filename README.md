@@ -1,6 +1,14 @@
 # thorqr-1.0
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that Thor QR Codes
+> A GitHub App that adds thor QR codes for branches that needed to be tested on modi or hudroid.
+
+
+## Use
+
+> Install in the repository you are using
+> Create a Pull Request
+> Tag the pull request with "Show Thor QR"
+> The bot will post a QR code as a comment
 
 ## Setup
 
@@ -12,12 +20,10 @@ npm install
 npm start
 ```
 
-## Contributing
-
-If you have suggestions for how thorqr-1.0 could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
-
-For more, check out the [Contributing Guide](CONTRIBUTING.md).
-
-## License
+## Debugging
+```sh
+# Run the bot in dev mode
+npm run dev
+```
 
 [ISC](LICENSE) © 2019 Josh Berg <joshberg@iastate.edu>
