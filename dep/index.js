@@ -3,30 +3,38 @@
  * @param {import('probot').Application} app
  */
 
-var QRCode = require('qrcode')
+const QRCode = require('qrcode')
 const fs = require('fs');
 const imgurUploader = require('imgur-uploader');
-var base64Img = require('base64-img');
+const base64Img = require('base64-img');
 
 module.exports = app => {
 
+  //Displays when app is initialized
   app.log('ThorQRBot is Running!')
 
-  app.on('pull_request.opened', async context => {
-    const branch = context.payload.pull_request.head.ref
-    const thorLink = "http://" + branch + ".thorhudl.com"
+  app.on('pull_request.labeled', async context => {
 
-    const qr64bit = await createQr64(thorLink);
-    const imgpath = await convert64ToImg(qr64bit);
-    const imgurLink = await uploadToImgur(imgpath);
+     constlabelname = context.payload.label.name;
 
-    const message = 'Here is your QR Code for: <br>' + thorLink.toLowerCase() + '<br><img src="' + imgurLink + '"/>'
+    if (labelname == "Show QR") {
+      const branch = context.payload.pull_request.head.ref
+      const thorLink = "http://" + branch + ".thorhudl.com"
 
-    const issueComment = context.issue({ body: message })
+      const qr64bit = await createQr64(thorLink);
+      const imgpath = await convert64ToImg(qr64bit);
+      const imgurLink = await uploadToImgur(imgpath);
 
-    app.log("QR CODE POSTED!");
+      const message = 'Here is your QR Code for: <br>' + thorLink.toLowerCase() + '<br><img src="' + imgurLink + '"/>'
 
-    return context.github.issues.createComment(issueComment)
+      const issueComment = context.issue({
+        body: message
+      })
+
+      app.log("QR CODE POSTED!");
+
+      return context.github.issues.createComment(issueComment)
+    }
   })
 
   function convert64ToImg(img) {

@@ -23,6 +23,7 @@
     "base64-img": "^1.0.4",
     "imgur-uploader": "^4.2.1",
     "probot": "^7.2.0",
+    "probot-commands": "^1.1.0",
     "qrcode": "^1.4.0",
     "request": "^2.88.0"
   },
